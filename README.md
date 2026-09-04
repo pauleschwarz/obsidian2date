@@ -105,11 +105,10 @@ In the slash command, just say it: `research the last 7 days of AI video tools`.
 1. `--obsidian-vault PATH` (explicit missing path may be created for export)
 2. `OBSIDIAN2DATE_VAULT`
 3. `LAST30DAYS_OBSIDIAN_VAULT`
-4. existing `~/Desktop/brain-paul` (legacy convenience)
 
-Environment and desktop candidates must already exist unless you pass an
-explicit `--obsidian-vault` you intend to create. Details:
-[CONFIGURATION.md](CONFIGURATION.md).
+There is **no personal default vault**. Environment candidates must already
+exist unless you pass an explicit `--obsidian-vault` you intend to create.
+Details: [CONFIGURATION.md](CONFIGURATION.md).
 
 ## Sources at a glance
 

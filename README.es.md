@@ -95,7 +95,6 @@ El destino de exportación se resuelve en este orden:
 1. `--obsidian-vault PATH` (una ruta explícita inexistente se crea para la exportación)
 2. `OBSIDIAN2DATE_VAULT`
 3. `LAST30DAYS_OBSIDIAN_VAULT`
-4. un `~/Desktop/brain-paul` existente
 
 Los candidatos de entorno y escritorio deben ser directorios ya existentes.
 Un valor de entorno de vault presente pero vacío o solo con espacios

@@ -766,7 +766,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--obsidian-vault",
         help=(
             "Obsidian vault root for --emit=obsidian (otherwise: "
-            "OBSIDIAN2DATE_VAULT, LAST30DAYS_OBSIDIAN_VAULT, or existing ~/Desktop/brain-paul)"
+            "OBSIDIAN2DATE_VAULT or LAST30DAYS_OBSIDIAN_VAULT; no personal default)"
         ),
     )
     parser.add_argument("--synthesis-file", help="Markdown synthesis to embed in --emit=html output")

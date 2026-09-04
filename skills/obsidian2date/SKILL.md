@@ -59,10 +59,10 @@ The upstream research engine remains under `skills/last30days/`.
 
 1. Get the topic from the user's request.
 2. Resolve the vault from an explicit `--obsidian-vault` path, then
-   `OBSIDIAN2DATE_VAULT`, then `LAST30DAYS_OBSIDIAN_VAULT`, then an existing
-   `~/Desktop/brain-paul`. Environment and desktop candidates must already be
-   directories; an explicit missing path is the requested export target. If no
-   path resolves, ask the user for one before writing (the CLI otherwise raises
+   `OBSIDIAN2DATE_VAULT`, then `LAST30DAYS_OBSIDIAN_VAULT`. There is no
+   personal default vault. Environment candidates must already be directories;
+   an explicit missing path is the requested export target. If no path
+   resolves, ask the user for one before writing (the CLI otherwise raises
    `No Obsidian vault found. Pass --obsidian-vault or set OBSIDIAN2DATE_VAULT.`).
 3. Derive the time window from the user's request (default 30 days; "last
    week" or "last 7 days" -> `--days 7`, "last 90 days" -> `--days 90`). The
@@ -135,7 +135,7 @@ python3 "$ENGINE" "rust async runtimes" --emit=obsidian --days 90
 
 # Explicit vault
 python3 "$ENGINE" "obsidian plugins 2026" --emit=obsidian \
-  --obsidian-vault "$HOME/Desktop/brain-paul"
+  --obsidian-vault "$HOME/Documents/MyVault"
 
 # Keyless free sources only
 python3 "$ENGINE" "rust async runtime" --emit=obsidian --search reddit,hackernews,github,web

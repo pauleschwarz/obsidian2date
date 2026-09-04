@@ -94,7 +94,6 @@ python3 skills/last30days/scripts/last30days.py "election odds" --emit=obsidian 
 1. `--obsidian-vault PATH`（明示的に指定された存在しないパスはエクスポート用に作成される）
 2. `OBSIDIAN2DATE_VAULT`
 3. `LAST30DAYS_OBSIDIAN_VAULT`
-4. 既存の `~/Desktop/brain-paul`
 
 環境変数とデスクトップの候補は、すでにディレクトリとして存在している必要が
 あります。空または空白のみのボールト環境変数が設定されている場合、暗黙の

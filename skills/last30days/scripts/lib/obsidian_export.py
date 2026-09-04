@@ -158,7 +158,9 @@ def resolve_vault_root(
     Order:
     1. explicit path
     2. OBSIDIAN2DATE_VAULT / LAST30DAYS_OBSIDIAN_VAULT
-    3. ~/Desktop/brain-paul when present
+
+    There is no implicit personal fallback: an unconfigured run fails with an
+    actionable message instead of guessing a private vault.
     """
     if explicit is not None:
         return Path(explicit).expanduser().resolve()
@@ -168,15 +170,13 @@ def resolve_vault_root(
     for key in ("OBSIDIAN2DATE_VAULT", "LAST30DAYS_OBSIDIAN_VAULT"):
         value = env_map.get(key)
         if value is not None:
-            # A present blank value deliberately disables implicit vault
-            # discovery instead of falling through to a lower-priority key or
-            # the desktop fallback.
+            # A present blank value deliberately disables vault discovery
+            # instead of falling through to a lower-priority key.
             if not value.strip():
                 raise FileNotFoundError(
                     "No Obsidian vault found. Pass --obsidian-vault or set OBSIDIAN2DATE_VAULT."
                 )
             candidates.append(Path(value).expanduser())
-    candidates.append(Path.home() / "Desktop" / "brain-paul")
 
     for candidate in candidates:
         resolved = candidate.resolve()
@@ -413,7 +413,7 @@ def _frontmatter(
     sources: list[str],
     run_note_title: str | None = None,
 ) -> str:
-    # brain-paul convention uses `typ:` + free tags; keep `type:` for exporters.
+    # Some vaults use `typ:` + free tags; keep `type:` for exporters.
     lines = [
         "---",
         f"title: {_yaml_scalar(title)}",

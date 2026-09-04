@@ -96,7 +96,6 @@ La cible d'export est résolue dans cet ordre :
 1. `--obsidian-vault PATH` (un chemin explicite inexistant est créé pour l'export)
 2. `OBSIDIAN2DATE_VAULT`
 3. `LAST30DAYS_OBSIDIAN_VAULT`
-4. un `~/Desktop/brain-paul` existant
 
 Les candidats d'environnement et de bureau doivent déjà être des
 répertoires. Une valeur d'environnement de coffre présente mais vide ou

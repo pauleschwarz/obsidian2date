@@ -222,19 +222,26 @@ class ObsidianExportTests(unittest.TestCase):
                 explicit.resolve(),
             )
 
-    def test_resolve_vault_root_blank_environment_blocks_implicit_fallback(self) -> None:
+    def test_resolve_vault_root_blank_environment_blocks_discovery(self) -> None:
+        with self.assertRaisesRegex(
+            FileNotFoundError,
+            r"^No Obsidian vault found\. Pass --obsidian-vault or set OBSIDIAN2DATE_VAULT\.$",
+        ):
+            obsidian_export.resolve_vault_root(
+                None,
+                env={"OBSIDIAN2DATE_VAULT": "", "LAST30DAYS_OBSIDIAN_VAULT": "  "},
+            )
+
+    def test_resolve_vault_root_has_no_personal_desktop_default(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             home = Path(tmp) / "home"
-            fallback = home / "Desktop" / "brain-paul"
-            fallback.mkdir(parents=True)
+            personal = home / "Desktop" / "some-personal-vault"
+            personal.mkdir(parents=True)
             with mock.patch.object(Path, "home", return_value=home), self.assertRaisesRegex(
                 FileNotFoundError,
                 r"^No Obsidian vault found\. Pass --obsidian-vault or set OBSIDIAN2DATE_VAULT\.$",
             ):
-                obsidian_export.resolve_vault_root(
-                    None,
-                    env={"OBSIDIAN2DATE_VAULT": "", "LAST30DAYS_OBSIDIAN_VAULT": "  "},
-                )
+                obsidian_export.resolve_vault_root(None, env={})
 
 
 if __name__ == "__main__":

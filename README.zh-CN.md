@@ -91,7 +91,6 @@ python3 skills/last30days/scripts/last30days.py "election odds" --emit=obsidian 
 1. `--obsidian-vault PATH`（显式指定且不存在的路径会为导出而创建）
 2. `OBSIDIAN2DATE_VAULT`
 3. `LAST30DAYS_OBSIDIAN_VAULT`
-4. 已存在的 `~/Desktop/brain-paul`
 
 环境变量和桌面候选必须已经是目录。环境变量存在但为空或只含空白时，会刻意
 禁用所有隐式兜底。如果都无法解析，命令会停止并输出：

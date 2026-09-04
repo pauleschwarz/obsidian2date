@@ -96,7 +96,6 @@ Das Export-Ziel wird in dieser Reihenfolge aufgelöst:
 1. `--obsidian-vault PATH` (ein explizit fehlender Pfad wird für den Export angelegt)
 2. `OBSIDIAN2DATE_VAULT`
 3. `LAST30DAYS_OBSIDIAN_VAULT`
-4. ein vorhandenes `~/Desktop/brain-paul`
 
 Umgebungs- und Desktop-Kandidaten müssen bereits Verzeichnisse sein. Ein
 vorhandener leerer oder nur aus Whitespace bestehender Vault-Umgebungswert
