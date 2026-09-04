@@ -124,6 +124,20 @@ Exact env vars, rate limits, and degrade behavior live in
 [CONFIGURATION.md](CONFIGURATION.md) — keep secrets out of the vault and out
 of git.
 
+## Check permissions before running
+
+```bash
+python3 skills/last30days/scripts/last30days.py --preflight
+```
+
+`--preflight` is safe: it reports what a run would do
+**without reading cookies, writing files, or running research**.
+For source and backend diagnostics, use the health check instead:
+
+```bash
+python3 skills/last30days/scripts/last30days.py doctor
+```
+
 ## Troubleshooting
 
 | Symptom | What to try |
@@ -131,7 +145,7 @@ of git.
 | Skill can't find a vault | Set `OBSIDIAN2DATE_VAULT` or pass `--obsidian-vault`; confirm the folder exists |
 | Empty / thin briefing | Widen `--days`, check which sources reported unavailable, add optional keys only if you need that source |
 | Rate limits / blocks | Re-run later; reduce concurrency in config; don't hammer a single backend |
-| Notes landed in the wrong vault | Unset stale `LAST30DAYS_OBSIDIAN_VAULT` / desktop default; pass an explicit path once |
+| Notes landed in the wrong vault | Unset a stale `LAST30DAYS_OBSIDIAN_VAULT`; pass an explicit path once |
 | Python errors on 3.11 | Use **3.12+** |
 
 ## Docs map
