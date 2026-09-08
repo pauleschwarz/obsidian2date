@@ -23,6 +23,12 @@ Requires **Python 3.12+** and an **Obsidian vault**. API keys are optional —
 runs degrade cleanly when a source is unavailable. Full knobs:
 [CONFIGURATION.md](CONFIGURATION.md). Vocabulary: [CONCEPTS.md](CONCEPTS.md).
 
+**Be honest with yourself about keys:** key-gated sources (X, Reddit, and
+similar) drop out entirely without credentials — expect HN, GitHub, and the
+open web to carry the run. „Optional" means the tool still works, not that
+coverage stays the same. Run the preflight first and read the per-source
+status before you trust a digest.
+
 ## What you get each run
 
 | Artifact | What it is |
